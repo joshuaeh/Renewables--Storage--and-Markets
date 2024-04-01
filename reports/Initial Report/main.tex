@@ -1,0 +1,317 @@
+%!TEX root = main.tex
+%% 
+%% Copyright 2007-2020 Elsevier Ltd
+%% 
+%% This file is part of the 'Elsarticle Bundle'.
+%% ---------------------------------------------
+%% 
+%% It may be distributed under the conditions of the LaTeX Project Public
+%% License, either version 1.2 of this license or (at your option) any
+%% later version.  The latest version of this license is in
+%%    http://www.latex-project.org/lppl.txt
+%% and version 1.2 or later is part of all distributions of LaTeX
+%% version 1999/12/01 or later.
+%% 
+%% The list of all files belonging to the 'Elsarticle Bundle' is
+%% given in the file `manifest.txt'.
+%% 
+
+%% Template article for Elsevier's document class `elsarticle'
+%% with numbered style bibliographic references
+%% SP 2008/03/01
+%%
+%% 
+%%
+%% $Id: elsarticle-template-num.tex 190 2020-11-23 11:12:32Z rishi $
+%%
+%%
+\documentclass[preprint,12pt]{elsarticle}
+
+%% Use the option review to obtain double line spacing
+%% \documentclass[authoryear,preprint,review,12pt]{elsarticle}
+
+%% Use the options 1p,twocolumn; 3p; 3p,twocolumn; 5p; or 5p,twocolumn
+%% for a journal layout:
+%% \documentclass[final,1p,times]{elsarticle}
+%% \documentclass[final,1p,times,twocolumn]{elsarticle}
+%% \documentclass[final,3p,times]{elsarticle}
+%% \documentclass[final,3p,times,twocolumn]{elsarticle}
+%% \documentclass[final,5p,times]{elsarticle}
+%% \documentclass[final,5p,times,twocolumn]{elsarticle}
+
+%% For including figures, graphicx.sty has been loaded in
+%% elsarticle.cls. If you prefer to use the old commands
+%% please give \usepackage{epsfig}
+
+\usepackage[skip=0ex]{caption}
+
+% soul and color for highlighting with \hl{} command
+\usepackage{soul, color}
+
+% \usepackage[draft]{changes}  % for editing markup see https://mirrors.ibiblio.org/CTAN/macros/latex/contrib/changes/changes.english.pdf
+% \setdeletedmarkup{\sout{\textcolor{red}{#1}}}
+
+%% The amssymb package provides various useful mathematical symbols
+\usepackage{amssymb}
+\usepackage{amsmath}
+%% The amsthm package provides extended theorem environments
+%% \usepackage{amsthm}
+
+% for table formatting
+\usepackage{booktabs}
+\usepackage{longtable}
+\usepackage{multirow}
+
+% The lineno packages adds line numbers. Start line numbering with
+% \begin{linenumbers}, end it with \end{linenumbers}. Or switch it on
+% for the whole article with \linenumbers.
+\usepackage{lineno}
+\linenumbers
+
+\usepackage{nomencl}
+\makenomenclature
+
+\setlength{\nomitemsep}{-\parsep}
+
+
+% For link formatting
+%% Generally hyperref should be the last package imported
+\usepackage{xurl}
+\usepackage[breaklinks=true]{hyperref}
+\hypersetup{
+    colorlinks=true,
+    linkcolor=blue,
+    filecolor=magenta,
+    urlcolor=cyan,
+    pdftitle={Near-term Solar Irradiance Forecasting under Data Transmission Constraints},
+    pdfauthor={Joshua E. Hammond, Ricardo A. Lara Orozco, Michael Baldea, Brian A. Korgel},
+    }
+
+%% This will add the subgroups to nomenclature
+%----------------------------------------------
+\usepackage{etoolbox}
+\renewcommand\nomgroup[1]{%
+  \item[\bfseries
+  \ifstrequal{#1}{A}{}{%
+  \ifstrequal{#1}{B}{Time Representations}{%
+  \ifstrequal{#1}{C}{Irradiance Representations}{}}}%
+]}
+%----------------------------------------------
+
+%% This will add the units
+%----------------------------------------------
+\newcommand{\nomunit}[1]{%
+\renewcommand{\nomentryend}{\hspace*{\fill}#1}}
+%----------------------------------------------
+
+% \autoref will reference the in figure label with the type if done correctly
+
+% refrence formatting
+% \cref for cleverref
+% NOTE: must be imported after hyperref package
+\usepackage{cleveref}
+
+\journal{ }
+
+\begin{document}
+
+\begin{frontmatter}
+
+%% Title, authors and addresses
+
+%% use the tnoteref command within \title for footnotes;
+%% use the tnotetext command for theassociated footnote;
+%% use the fnref command within \author or \address for footnotes;
+%% use the fntext command for theassociated footnote;
+%% use the corref command within \author for corresponding author footnotes;
+%% use the cortext command for theassociated footnote;
+%% use the ead command for the email address,
+%% and the form \ead[url] for the home page:
+%% \title{Title\tnoteref{label1}}
+%% \tnotetext[label1]{}
+%% \author{Name\corref{cor1}\fnref{label2}}
+%% \ead{email address}
+%% \ead[url]{home page}
+%% \fntext[label2]{}
+%% \cortext[cor1]{}
+%% \affiliation{organization={},
+%%             addressline={},
+%%             city={},
+%%             postcode={},
+%%             state={},
+%%             country={}}
+%% \fntext[label3]{}
+
+\title{Renewables, Energy Storage, and Power Markets:\\Optimization of plant design and operation to maximize net present value and minimize emissions}
+
+%% use optional labels to link authors explicitly to addresses:
+%% \author[label1,label2]{}
+%% \affiliation[label1]{organization={},
+%%             addressline={},
+%%             city={},
+%%             postcode={},
+%%             state={},
+%%             country={}}
+%%
+%% \affiliation[label2]{organization={},
+%%             addressline={},
+%%             city={},
+%%             postcode={},
+%%             state={},
+%%             country={}}
+
+\author[che]{Joshua E. Hammond}
+% \ead{joshua.hammond@che.utexas.edu}
+% \ead{rlara@che.utexas.edu}
+\author[che,oden]{Michael Baldea\corref{cor1}}
+\ead{mbaldea@che.utexas.edu}
+\author[che,ei,tmi]{Brian A. Korgel\corref{cor1}}
+\ead{korgel@che.utexas.edu}
+
+\cortext[cor1]{Corresponding Authors.}
+% \cortext[cor2]{}
+
+\affiliation[che]{organization={McKetta Department of Chemical Engineering, The University of Texas at Austin},
+   addressline={200 East Dean Keeton St., Stop C0400},
+   city={Austin},
+   postcode={78712},
+   state={TX},
+    country={United States}
+    }
+\affiliation[ei]{organization={Energy Institute, The University of Texas at Austin},
+    addressline={2304 Whitis Ave., Stop C2400},
+   city={Austin},
+   postcode={78712},
+   state={TX},
+    country={United States}
+    }
+\affiliation[oden]{organization={Institute for Computational Engineering and Sciences, The University of Texas at Austin},
+    addressline={201 E. 24th St., POB 4.102, Stop C0200},
+   city={Austin},
+   postcode={78712},
+   state={TX},
+    country={United States}
+    }
+\affiliation[tmi]{organization={Texas Materials Institute, The University of Texas at Austin},
+    addressline={204 E. Dean Keeton St., Stop C2201},
+   city={Austin},
+   postcode={78712},
+   state={TX},
+    country={United States}
+    }
+
+\begin{abstract}
+
+Existing work in optimizing renewable energy systems has generally focused on minimizing the levelized cost of power or green hydrogen. In contrast, we present a bi-level optimization framework for the design and operation of renewable energy systems to maximize net present value (NPV) and minimize emissions. The framework uses a user-specified location to acquire historical weather and power market data. Design considerations include the type and relative generation capacity of implemented renewable generation and energy storage technologies. Operational considerations include power storage and dispatch decisions during the lifetime of the system. Sensitivity analysis consider the impact of technological, weather, market, and policy uncertainties on the NPV and emissions of the system. The code to reproduce and extend the results presented in this work is available at \url{}.
+
+\end{abstract}
+
+% %%Graphical abstract
+% \begin{graphicalabstract}
+% %\includegraphics{grabs}
+% \end{graphicalabstract}
+
+% %%Research highlights
+% \begin{highlights}
+% \item Research highlight 1
+% \item Research highlight 2
+% \end{highlights}
+
+\begin{keyword}
+%% keywords here, in the form: keyword \sep keyword
+
+%% PACS codes here, in the form: \PACS code \sep code
+
+%% MSC codes here, in the form: \MSC code \sep code
+%% or \MSC[2008] code \sep code (2000 is the default)
+
+\end{keyword}
+
+\end{frontmatter}
+
+%% \linenumbers
+
+%% main text
+\section{Introduction}
+\label{sec:introduction}
+
+Advances in technology have made renewable energy sources increasingly competitive with traditional fossil fuels--an important step in the overarching energy transition. While renewable energy sources such as wind and solar power have low marginal generation costs, \hl{increased penetration of renewables is associated with a cannibalistic effect on the price of energy}. The levelized cost of renewable energy is largely dominated by capital costs \needsource.
+
+\subsection{Related Literature}
+\label{sub:literature}
+
+\begin{itemize}
+    \item \citet{Ginsberg2022} integrate waste heat from a PEM electrolyzer to desalinate and deionize water before electrolysis. This heat integration allows cost parity with SMR at an average electricity price of \$0.03 /kWh.
+\end{itemize}
+
+\section{Modeling Approach}
+\label{sec:modeling}
+
+\subsection{Objective Function}
+\label{sub:objective}
+
+\subsubsection{Net Present Value Calculations}
+\label{sub:npv}
+
+\subsubsection{Emissions Calculations}
+\label{sub:emissions}
+
+\subsection{Data Acquisition}
+\label{sub:data}
+
+\subsubsection{Climate and Weather Data}
+\label{sub:weather}
+
+\subsubsection{Market Data}
+\label{sub:market}
+
+\subsection{Renewable Generation}
+\label{sub:generation}
+
+\subsubsection{Photovoltaic Power Generation}
+\label{sub:pv}
+
+\subsubsection{Concentrated Solar Generation}
+\label{sub:csp}
+
+\subsubsection{Wind Power Generation}
+\label{sub:wind}
+
+\subsection{Energy Storage}
+\label{sub:storage}
+
+\subsubsection{Battery Storage}
+\label{sub:battery}
+
+\subsubsection{Thermal Energy Storage}
+\label{sub:thermal}
+
+\subsubsection{Electrolysis and Fuel Cells}
+\label{sub:electrolysis}
+
+\subsection{External Integration}
+\label{sub:integration}
+
+\subsection{Final Problem Statement}
+\label{sub:problem}
+
+\section{Results}
+\label{sec:results}
+
+\subsection{Sensitivity Analysis}
+\label{sub:sensitivity}
+
+\subsection{Discussion}
+\label{sub:discussion}
+
+\section{Conclusions}
+\label{sec:conclusions}
+
+
+\bibliographystyle{elsarticle-num} 
+\bibliography{references}
+
+\end{document}
+\endinput
+%%
+%% End of file `elsarticle-template-num.tex'.
